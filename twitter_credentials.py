@@ -1,4 +1,11 @@
-ACCESS_TOKEN = "1417488738922471426-a0I1NjSNaQH6wLJEEY4tUeArSlCJOY"
-ACCESS_TOKEN_SECRET = "KqvTRD8FhGxtoLihcxpCRm68mKdFwUC84dilJ2LgaNkiq"
-CONSUMER_KEY = "eDe0PArxzZh2jFJ0pAoDaPn1p"
-CONSUMER_SECRET = "l8QNlruXSDqxp3nZB0GXHO10BMJKkdUJxp5GRwUkZupfRCDwXN"
+import os
+# Importing environment Variables
+
+from dotenv import load_dotenv
+
+load_dotenv()
+print(os.getenv('ACCES_TOKEN'))
+ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
+ACCESS_TOKEN_SECRET = os.getenv('ACCESS_TOKEN_SECRET')
+CONSUMER_KEY = os.getenv('CONSUMER_KEY')
+CONSUMER_SECRET = os.getenv('CONSUMER_SECRET') 
