@@ -29,3 +29,6 @@ To deploy this project run
  4.  python main.py
 ```
 
+## sample output
+
+![image](https://user-images.githubusercontent.com/58904683/149517860-7b0dc0aa-5bc8-4efa-b01a-923bcb32e0a4.png)
