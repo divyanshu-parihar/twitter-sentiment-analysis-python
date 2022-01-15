@@ -31,4 +31,5 @@ To deploy this project run
 
 ## sample output
 
-![image](https://user-images.githubusercontent.com/58904683/149517860-7b0dc0aa-5bc8-4efa-b01a-923bcb32e0a4.png)
+![image](https://user-images.githubusercontent.com/58904683/149621296-71f2cc5a-dceb-40f2-a5b5-496683ef702c.png)
+
