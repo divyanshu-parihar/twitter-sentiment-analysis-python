@@ -1,3 +1,4 @@
+from unittest import result
 from tweepy import API 
 from tweepy import Cursor
 from tweepy import OAuthHandler
@@ -60,14 +61,6 @@ class TwitterStreamer():
     def __init__(self):
         self.twitter_autenticator = TwitterAuthenticator()    
 
-    def stream_tweets(self, fetched_tweets_filename, hash_tag_list):
-        # This handles Twitter authetification and the connection to Twitter Streaming API
-        listener = TwitterListener(fetched_tweets_filename)
-        auth = self.twitter_autenticator.authenticate_twitter_app() 
-        stream = Stream(auth, listener)
-
-        # This line filter Twitter Streams to capture data by the keywords: 
-        stream.filter(track=hash_tag_list)
 
 
 
@@ -118,9 +111,13 @@ if __name__ == '__main__':
     api = twitter_client.get_twitter_client_api()
 
     tweets = api.user_timeline(screen_name="jordanbpeterson", count=200)
-    print(tweets)
     df = tweet_analyzer.tweets_to_data_frame(tweets)
     df['sentiment'] = np.array([tweet_analyzer.analyze_sentiment(tweet) for tweet in df['tweets']])
     df['result']= np.array([tweet_analyzer.generate_result(tweet) for tweet in df['tweets']])
-
     df.head(100).to_html('./index.html')
+    resultdf = df['result'].value_counts()
+    resultdf.plot(kind='bar', figsize=(7, 6), rot=0)
+    plt.xlabel("Types of Tweets", labelpad=14)
+    plt.ylabel("No. of Tweets", labelpad=14)
+    plt.title("Visualizaiton of Polarity of Tweets", y=1.02)
+    plt.show()
