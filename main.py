@@ -115,3 +115,9 @@ if __name__ == '__main__':
     df['result']= np.array([tweet_analyzer.generate_result(tweet) for tweet in df['tweets']])
 
     df.head(100).to_html('./index.html')
+    resultdf = df['result'].value_counts()
+    resultdf.plot(kind='bar', figsize=(7, 6), rot=0)
+    plt.xlabel("Types of Tweets", labelpad=14)
+    plt.ylabel("No. of Tweets", labelpad=14)
+    plt.title("Visualizaiton of Polarity of Tweets", y=1.02)
+    plt.show()
